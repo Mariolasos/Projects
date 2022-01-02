@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b61cd8ed8c.js" crossorigin="anonymous"></script>
+    <title>Weather App</title>
+</head>
+<body>
+  <div class="container text-primary" id="container-upper">
+    <div class="row text-center">
+      <h1 class="display-4 col-12 mt-3 text-info">Weather App <i class="fas fa-cloud-sun"></i></h1>
+      <p class="lead col-12 ">Please add a city to your list, here you will see all the information about the city. <button class="btn btn-outline-primary btn-sm justify-content-end" id="color-mode">Dark mode</button></p>
+      <hr>
+      <div class="col-12 mt-3 mb-3" id="location">
+        <h3 id="location-name"></h3>
+        <!--CAROUSEL TOP-->
+        <div id="location-top-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <p class="" id="location-timezone"></p>
+            </div>
+            <div class="carousel-item">
+              <p class="" id="location-sunrise-sunset"></p>
+            </div>
+            <div class="carousel-item">
+              <p  id="location-UV"></p>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-info" id="location-date"></p>
+        <img src="" alt="Weather icon" class="weather-icon-teal" id="location-icon">
+        <p class="lead display-6 mt-2 font-weight-bold" id="location-temp"></p>
+        <p class="lead font-weight-bold" id="location-info"></p>
+
+        <div class="container location-info-div" id="location-info-div">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="muted" id="location-wind"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="muted" id="location-pressure"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="muted" id="location-clouds"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="muted" id="location-humidity"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-check form-switch text-start">
+          <input class="form-check-input" type="checkbox" id="location-switch-daily-hourly">
+          <label class="form-check-label" for="location-switch-daily-hourly" id="location-switch-daily-hourly-text">Change to hourly mode</label>
+        </div>
+
+        <div class="container mt-3">
+          <div class="row" id="location-cards-info">
+            
+          </div>
+        </div>
+
+      </div>
+      <form>
+        <div class="form-group mt-5" id="city-search-form">
+          <label for="city" class="lead">Enter the city name</label>
+          <input type="text" class="form-control mb-2" id="city" aria-describedby="cityHelp" placeholder="Enter city">
+          <small id="cityHelp" class="form-text text-muted">If you don't know any click the button to show you all the cities. <button id="show-cities" type="button" class="btn btn-sm btn-outline-info mt-2 show-cities-btn" data-toggle="modal" data-target="#all-cities-modal">cities</button></small><br>
+          <small id="cityHelp" class="form-text text-muted">You can enter a country too.</small>
+        </div>
+        <button type="submit" id="search" class="btn btn-teal mt-4">Search</button>
+      </form>     
+    </div>
+    <div class="row mt-5">
+      <div class="col-2 text-center">
+        <button class="btn btn-info mt-2 listViewBtn">Show</button>
+      </div>
+    </div>
+  </div>
+  <!--CARDS-->
+  <div class="container mt-3 cityTable">
+    <div class="row">
+      <div class="card text-white bg-primary mb-3 col-lg-3">
+        <div class="card-header">Header</div>
+          <div class="card-body">
+            <h4 class="card-title">Primary card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+          <div class="card text-white bg-secondary mb-3 col-lg-3">
+            <div class="card-header">Header</div>
+              <div class="card-body">
+                <h4 class="card-title">Secondary card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+            <div class="card text-white bg-primary mb-3 col-lg-3">
+              <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Primary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3 col-lg-3">
+              <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Secondary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+          </div>
+      </div>
+
+    <!--MODAL-->
+    <div class="modal fade" id="all-cities-modal" tabindex="-1" role="dialog" aria-labelledby="all-cities-modal-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content container">
+            <div class="modal-header">
+              <h5 class="modal-title" id="all-cities-modal-label"></h5>
+              <i type="button" class="fas fa-times" data-dismiss="modal" aria-label="Close"></i>
+            </div>
+            <div class="modal-body row" id="all-cities-modal-body">
+              
+            </div>
+            <div class="modal-footer row">
+              <button type="button" class="btn btn-danger col-3" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

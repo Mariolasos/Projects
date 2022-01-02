@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    font-family: "Roboto";
+    animation: ease-in 2s;
+}
+input{
+    border: 2px white;
+}
+.text-color-black{
+    color: black;
+}
+.show-cities-btn{
+    border-radius: 5rem;
+    width: fit-content;
+}
+.country-bold{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.weather-icon-teal{
+    background: teal;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+.weather-icon-teal-light{
+    background: teal;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.accordion-weather-icon-teal-light{
+    background: teal;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.weather-icon-teal-modal{
+    background: rgb(0, 128, 128);
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.card-border{
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.btn-teal{
+    background-color: teal;
+    color: white;
+}
+.btn-teal:hover{
+    color: white;
+    background-color: rgb(0, 102, 102);
+}
+.location-info-div{
+    width:fit-content;
+}
+#color-mode{
+    border-radius: 5rem;
+}
+.color-mode-text-background{
+    background-color:rgba(34,34,34);
+    color:#FFF;
+}
+.btn-outline-teal{
+    background-color:rgba(34,34,34);
+    border: 2px solid teal;
+}
+.btn-outline-teal:hover{
+    background-color:teal;
+    color: white;
+}
+.img-outline-modal{
+    border: 2px solid teal;
+    background: none;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.accordion-img-outline-card{
+    border: 2px solid teal;
+    background: none;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.img-outline-card{
+    border: 2px solid teal;
+    background: none;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+.img-outline{
+    border: 2px solid teal;
+    background: none;
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+.small-text{
+    font-size: 16px;
+    font-weight: lighter;
+    color: white;
+}
+.location-card-modal-description b{
+    font-weight: bolder;
+}
+.modal-content-color-mode{
+    background-color: rgb(34, 34, 34);
+    color: white;
+}
+.small-img-size-accordion{
+    width:32px;
+    height:32px;
+    margin-right: 5px;
+}
+.medium-img-size-accordion{
+    width:82px;
+    height:64px;
+}
+.accordion-bg-black{
+    background-color: rgb(34, 34, 34);
+}
+@media only screen and (max-width: 575px) {
+    .location-card-modal-description{
+      font-size: 16px;
+    }
+    .location-card-modal-img-info{
+        width: min-content;
+    }
+    .parameters-modal{
+        font-size: 14px;
+    }
+    .location-card-description{
+        font-size: 16px;
+    }
+}
+
+@media (max-width:1400px) and (min-width:991px){
+    .location-card-description{
+        font-size: 18px;
+    }
+}
+    
