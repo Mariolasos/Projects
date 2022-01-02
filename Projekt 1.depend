@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1580750537 source:c:\users\mario\desktop\c tvz\projekt 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
+1580309718 source:c:\users\mario\desktop\c tvz\projekt 1\func.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
+1580309720 source:f:\projekt 1\func.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
+1580750538 source:f:\projekt 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
+1580309720 source:c:\users\mario\desktop\moji radovi\c tvz\projekt 1\func.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
+1581273452 source:c:\users\mario\desktop\moji radovi\c tvz\projekt 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<windows.h>
+	<string.h>
+	<time.h>
+
