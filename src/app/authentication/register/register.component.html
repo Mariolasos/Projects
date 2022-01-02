@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <h3 class="display-3 col-12">Register</h3>
+    <form [formGroup]="registerForm" class="col-12">
+      <input type="text" placeholder="First Name" class="form-control mt-4" formControlName="firstName">
+      <small *ngIf="!registerForm.controls.firstName.untouched && registerForm.controls.firstName.invalid" class="form-text text-danger">Must have only characters</small>
+      <input type="text" placeholder="Last Name" class="form-control mt-4" formControlName="lastName">
+      <small *ngIf="!registerForm.controls.lastName.untouched && registerForm.controls.lastName.invalid" class="form-text text-danger">Must have only alphabet characters</small>
+      <input type="text" placeholder="Username" class="form-control mt-4" formControlName="username">
+      <small *ngIf="!registerForm.controls.username.untouched && registerForm.controls.username.invalid" class="form-text text-danger">Must have at least one uppercase character, min length 3</small>
+      <input type="password" placeholder="Password" class="form-control mt-4" formControlName="password">
+      <small *ngIf="!registerForm.controls.password.untouched && registerForm.controls.password.invalid" class="form-text text-danger">Must have at least one uppercase character and one number, min length 6</small>
+      <input type="password" placeholder="Confirm Password" class="form-control mt-4" formControlName="confirmPassword">
+      <small *ngIf="(registerForm.value.password !== registerForm.value.confirmPassword) && registerForm.controls.confirmPassword.untouched===false" class="form-text text-danger">Must match password</small>
+      <input type="text" placeholder="Email" class="form-control mt-4" formControlName="email">
+      <small *ngIf="!registerForm.controls.email.untouched && registerForm.controls.email.invalid" class="form-text text-danger">Must be a valid email address</small>
+      <button class="btn btn-primary mt-3" (click)="onRegister()" [disabled]="registerForm.invalid || (registerForm.value.password !== registerForm.value.confirmPassword)">Register</button>
+    </form>
+    <button class="col-12 btn btn-link text-left" [routerLink]="['/authentication/login']">Back to login page</button>
+  </div>
+</div>

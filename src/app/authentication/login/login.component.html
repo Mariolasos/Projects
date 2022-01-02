@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3 class="display-3 col-12">Login</h3>
+    <form [formGroup]="loginForm" class="col-12">
+      <input type="text" class="form-control mt-4" placeholder="&#xf023; Username" formControlName="username">
+      <input type="password" class="form-control mt-3" placeholder="&#xf007; Password" formControlName="password">
+      <small *ngIf="alert.show" class="form-text text-danger">{{alert.message}}</small><br>
+      <input class="form-check-input ml-1" type="checkbox" formControlName="rememberMe" id="rememberMe">
+      <label class="form-check-label ml-4" for="rememberMe">
+        Remember me
+      </label><br>
+      <button type="button" class="btn btn-primary mt-3" (click)="onLogin()">Login</button>
+    </form>
+    <button class="col-12 btn btn-link text-left" [routerLink]="['/authentication/register']">Create an account</button>
+  </div>
+</div>
