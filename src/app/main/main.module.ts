@@ -6,13 +6,15 @@ import { TodoComponent } from './todo/todo.component';
 import { SharedModule } from '../shared/shared.module';
 import { TasksComponent } from './tasks/tasks.component';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
+import { CreateComponent } from './create/create.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [TodoComponent, TasksComponent, DateFilterPipe],
+  declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class MainModule { }

@@ -1,0 +1,22 @@
+nav{
+    font-size: larger;
+}
+.navbar-brand{
+    font-weight: 300;
+    letter-spacing: 10px;
+    font-size: 30px;
+}
+.nav-item .nav-link{
+    font-size: larger;
+}
+
+.aboveTasks{
+    margin-bottom: 120px;
+}
+
+hr{
+    height: 1px;
+    color: black;
+    background-color: black;
+    opacity: 0.4;
+}
