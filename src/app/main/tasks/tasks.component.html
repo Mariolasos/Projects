@@ -1,13 +1,47 @@
 <div class="container mb-5">
-  <div class="row">
+  <div *ngIf="!isLoading" class="row">
     <div *ngFor="let task of tasks | dateFilter : optionChild" class="card border-dark mb-3 col-lg-4 offset-lg-1">
-      <div class="card-header">{{task.date | date:"short"}}</div>
+      <div class="card-header">
+        {{task?.date | date:"short"}}
+      </div>
       <div class="card-body text-dark">
-        <h5 class="card-title">{{task.title}}</h5>
-        <p class="card-text">{{task.text}}</p>
+        <h5 class="card-title">{{task?.title}}</h5>
+        <p class="card-text">{{task?.text}}</p>
+        <button class="btn btn-danger mr-2" (click)="onDelete(task)">Delete</button>
+        <button class="btn btn-warning text-light mr-2" (click)="editTask=task;" data-toggle="modal" data-target="#exampleModal">Edit</button>
+        <button class="btn btn-dark" (click)="onArchive(task)">Archive</button>
       </div>
     </div>
   </div>
 </div>
 
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label class="col-form-label">Title:</label>
+            <input type="text" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Text:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 

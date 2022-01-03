@@ -24,7 +24,6 @@ export class TodoComponent implements OnInit {
     }else{
       this.user=this.db.getUserSessionStorage();
     }
-    console.log(this.user);
   }
 
   onLogout(){

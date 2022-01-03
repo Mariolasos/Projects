@@ -38,6 +38,15 @@ export class DatabaseService {
     return this.http.post("https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/users.json",user);
   }
 
+  deleteTodo(id){
+    return this.http.delete(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`);
+  }
+
+  editTodo(task:Todo,id){
+    delete task.id;
+    return this.http.patch(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}/.json`,task);
+  }
+
   getUserLocalStorage():User{
     return JSON.parse(localStorage.getItem("user"));
   }

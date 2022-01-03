@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DatabaseService } from 'src/app/shared/database.service';
 import { Todo } from 'src/app/shared/models/todo.model';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-tasks',
@@ -11,16 +13,40 @@ import { Todo } from 'src/app/shared/models/todo.model';
 export class TasksComponent implements OnInit,OnDestroy {
 
   private tasks:Todo[];
-  private sub:Subscription;
+  private isLoading:boolean=true;
+  private sub:Subscription[]=[];
+  private editTask:Todo;
   @Input() optionChild = "today";
-  constructor(private db:DatabaseService) { }
+  @Input() userChild:User;
+  constructor(private db:DatabaseService,private http:HttpClient) { }
 
   ngOnInit() {
-    this.sub=this.db.getTodos().subscribe(res=>{this.tasks=res});
+    /*this.http.post("https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos.json",{archive:false,
+    date:"Sat Feb 03 2022 20:08:57 GMT+0100",idUser:"-MsBOkemXXo5qcvooOzx",text: "Transmission 3x-ca, Engine V6xa, Nitro n2o, Sus...",title: "Car Stuff"}).subscribe();*/
+    this.sub.push(this.db.getTodos().subscribe(res=>{
+      this.tasks=res.filter(task=>task.idUser==this.userChild.id && task.archive==false);
+      this.isLoading=false;
+      console.log(this.tasks)}));
+  }
+
+  onDelete(taskDel:Todo){
+    this.sub.push(this.db.deleteTodo(taskDel.id).subscribe(res=>{
+      document.location.reload();
+    }));
+  }
+  
+  onEdit(taskEdit:Todo){
+    console.log(taskEdit);
+  }
+
+  onArchive(taskArch:Todo){
+    taskArch.archive=true;
+    this.sub.push(this.db.editTodo(taskArch,taskArch.id).subscribe(res=>{
+      document.location.reload();
+    }));
   }
 
   ngOnDestroy(): void {
-      this.sub.unsubscribe();
+    this.sub.forEach(subscrition=>subscrition.unsubscribe());
   }
-
 }
