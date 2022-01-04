@@ -6,19 +6,19 @@
       <p class="lead display-6 ml-4">After you create your Todo you will be able to see it in your Account or Home page</p>
     </div>
     <div class="col-md-6 col-12 mt-5">
-      <form>
+      <form [formGroup]="createForm">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label class="lead ml-2">Title</label>
-            <input type="text" class="form-control" placeholder="Title">
+            <input type="text" class="form-control" placeholder="Title" formControlName="title">
           </div>
-          <div class="form-group col-md-4 col-10">
+          <div class="form-group col-md-4 col-12">
             <label class="lead ml-2">Date</label>
-            <input type="date" class="form-control">
+            <input type="date" class="form-control" formControlName="date" [min]="createForm.value.date">
           </div>
-          <div class="form-group col-md-2 col-2">
+          <div class="form-group col-md-2 col-6">
             <label class="lead ml-2">Color Select</label>
-            <select class="form-control">
+            <select class="form-control" formControlName="color">
               <option value="dark">Black</option>
               <option value="primary">Blue</option>
               <option value="info">Light Blue</option>
@@ -29,22 +29,22 @@
           </div>
           <div class="form-group col-12">
             <label class="lead ml-2">Text</label><br>
-            <textarea class="form-control" cols="30" rows="10" placeholder="Text text text..."></textarea>
+            <textarea class="form-control" cols="30" rows="10" placeholder="Text text text..." formControlName="text"></textarea>
           </div>
         </div>
       </form>
     </div>
-    <div class="col-md-6 col-12 mt-5">
-      <div class="card border-dark mb-3 col-lg-4 offset-lg-1">
-        <div class="card-header">
-          17/12/2001
+    <div *ngIf="createForm" class="col-md-6 col-12 mt-5">
+      <div class="card mb-3 col-lg-4 offset-lg-1" [ngClass]="createForm.value.color==null ? 'border-dark' : 'border-'+ createForm.value.color">
+        <div class="card-header" [ngClass]="createForm.value.color==null ? 'text-dark' : 'text-'+ createForm.value.color">
+          {{createForm.value.date | date:short}}
         </div>
-        <div class="card-body text-dark">
-          <h5 class="card-title">IDEMOOO</h5>
-          <p class="card-text">text text text</p>
+        <div class="card-body" [ngClass]="createForm.value.color==null ? 'text-dark' : 'text-'+ createForm.value.color">
+          <h5 class="card-title">{{createForm.value.title}}</h5>
+          <p class="card-text">{{createForm.value.text}}</p>
         </div>
       </div>
-      <button class="btn btn-primary mt-2 offset-lg-1">Create</button>
+      <button (click)="onCreate()" class="btn btn-primary mt-2 offset-lg-1 mb-2" [disabled]="!createForm.valid">Create</button>
     </div>
   </div>
 </div>

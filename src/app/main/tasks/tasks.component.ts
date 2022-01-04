@@ -21,8 +21,8 @@ export class TasksComponent implements OnInit,OnDestroy {
   constructor(private db:DatabaseService,private http:HttpClient) { }
 
   ngOnInit() {
-    /*this.http.post("https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos.json",{archive:false,
-    date:"Sat Feb 03 2022 20:08:57 GMT+0100",idUser:"-MsBOkemXXo5qcvooOzx",text: "Transmission 3x-ca, Engine V6xa, Nitro n2o, Sus...",title: "Car Stuff"}).subscribe();*/
+    /*this.sub.push(this.http.post("https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos.json",{archive:false,
+    date:"Sat Jan 05 2022 20:08:57 GMT+0100",idUser:"-MsBOkemXXo5qcvooOzx",text: "Transmission 3x-ca, Engine V6xa, Nitro n2o, Sus...",title: "Car Stuff",color:"dark"}).subscribe());*/
     this.sub.push(this.db.getTodos().subscribe(res=>{
       this.tasks=res.filter(task=>task.idUser==this.userChild.id && task.archive==false);
       this.isLoading=false;

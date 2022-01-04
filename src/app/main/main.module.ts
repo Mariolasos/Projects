@@ -8,6 +8,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { DateFilterPipe } from './pipes/date-filter.pipe';
 import { CreateComponent } from './create/create.component';
 import { NavComponent } from './nav/nav.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent],
@@ -15,6 +16,8 @@ import { NavComponent } from './nav/nav.component';
     CommonModule,
     MainRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class MainModule { }

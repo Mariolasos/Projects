@@ -42,9 +42,13 @@ export class DatabaseService {
     return this.http.delete(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}.json`);
   }
 
-  editTodo(task:Todo,id){
-    delete task.id;
-    return this.http.patch(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}/.json`,task);
+  editTodo(todo:Todo,id){
+    delete todo.id;
+    return this.http.patch(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}/.json`,todo);
+  }
+
+  createTodo(todo:Todo){
+    return this.http.post("https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos.json",todo);
   }
 
   getUserLocalStorage():User{

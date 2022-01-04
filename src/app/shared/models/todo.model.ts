@@ -5,4 +5,5 @@ export class Todo{
     date:Date;
     archive:boolean;
     id?:string;
+    color?:string;
 }
