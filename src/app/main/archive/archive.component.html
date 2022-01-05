@@ -1,0 +1,19 @@
+<app-nav></app-nav>
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="col-12">
+      <h1 class="display-3 mt-5 ml-4">Archive Room</h1>
+      <p class="lead display-6 ml-4">Here you can see all the archived todos. Todos will be automatically archived when their date expires or if you complete them</p>
+    </div>
+  </div>
+</div>
+<div class="container mt-5">
+  <div class="row text-center">
+    <p class="col-12 mt-5 display-4 ">Your Todo Archive</p>
+    <span class="text-muted col-lg-4">Todos completed: {{statistic.done}}</span>
+    <span class="text-muted col-lg-4">Todos not completed: {{statistic.notDone}}</span>
+    <span class="text-muted col-lg-4">Todo percentage: {{statistic.perc}}%</span>
+    <hr class="col-12">
+  </div>
+</div>
+<app-tasks [optionChild]="option" [userChild]="user"></app-tasks>

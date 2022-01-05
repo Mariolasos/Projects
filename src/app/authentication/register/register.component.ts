@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DatabaseService } from 'src/app/shared/database.service';
 import { User } from 'src/app/shared/models/user.model';
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit,OnDestroy {
 
   private registerForm:FormGroup;
   private sub:Subscription;
-  constructor(private fb:FormBuilder,private db:DatabaseService,private nav:NavigationService) { }
+  constructor(private fb:FormBuilder,private db:DatabaseService,private nav:NavigationService,private router:Router) { }
 
   ngOnInit() {
     this.nav.mainRedirectCheck();
@@ -31,10 +32,13 @@ export class RegisterComponent implements OnInit,OnDestroy {
   onRegister(){
     let user:User=this.registerForm.value;
     delete user.confirmPassword;
-    this.sub=this.db.addUser(user).subscribe();
+    this.registerForm.value.confirmPassword=this.registerForm.value.password;
+    this.sub=this.db.addUser(user).subscribe(res=>{
+      this.router.navigate(["/authentication/login"]);
+    });
   }
 
   ngOnDestroy(): void {
-      this.sub.unsubscribe();
+      //this.sub.unsubscribe();
   }
 }

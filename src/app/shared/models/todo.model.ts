@@ -4,6 +4,7 @@ export class Todo{
     text:string;
     date:Date;
     archive:boolean;
+    color:string;
     id?:string;
-    color?:string;
+    done?:boolean;
 }

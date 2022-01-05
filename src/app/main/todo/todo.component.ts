@@ -17,10 +17,6 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.nav.authRedirectCheck();
-    if(this.db.getUserLocalStorage()!==null){
-      this.user=this.db.getUserLocalStorage();
-    }else{
-      this.user=this.db.getUserSessionStorage();
-    }
+    this.db.getUserLocalStorage()!==null ? this.user=this.db.getUserLocalStorage() : this.user=this.db.getUserSessionStorage();
   }
 }

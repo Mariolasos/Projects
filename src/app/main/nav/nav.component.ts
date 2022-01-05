@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatabaseService } from 'src/app/shared/database.service';
+import { NavigationService } from 'src/app/shared/navigation.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +10,10 @@ import { DatabaseService } from 'src/app/shared/database.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private db:DatabaseService,private router:Router) { }
+  constructor(private db:DatabaseService,private router:Router, private nav:NavigationService) { }
 
   ngOnInit() {
+    this.nav.authRedirectCheck();
   }
 
   onLogout(){

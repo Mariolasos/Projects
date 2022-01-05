@@ -11,6 +11,8 @@ export class DateFilterPipe implements PipeTransform {
     let dateEnd = new Date();
     let dateStart = new Date();
     switch(option){
+      case "archive":
+        return tasks;
       case "this week":
         let lastDay=(dateEnd.getDate() - dateEnd.getDay())+7;
         dateEnd=new Date(new Date().setDate(lastDay));

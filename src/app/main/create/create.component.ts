@@ -16,17 +16,16 @@ export class CreateComponent implements OnInit,OnDestroy {
 
   private user:User;
   private sub:Subscription;
+  private todayDate:string;
   private todo:Todo={title:"Hello!",text:"This is a showcase of your task.",date:new Date(),idUser:"",archive:false,color:null};
   createForm:FormGroup;
   constructor(private nav:NavigationService,private db:DatabaseService,private fb:FormBuilder) { }
 
   ngOnInit() {
+    this.todayDate=this.todayDateGenerate();
+    
     this.nav.authRedirectCheck();
-    if(this.db.getUserLocalStorage()!==null){
-      this.user=this.db.getUserLocalStorage();
-    }else{
-      this.user=this.db.getUserSessionStorage();
-    }
+    this.db.getUserLocalStorage()!==null ? this.user=this.db.getUserLocalStorage() : this.user=this.db.getUserSessionStorage();
 
     this.createForm=this.fb.group({
       "title" : new FormControl(this.todo.title,Validators.required),
@@ -43,13 +42,23 @@ export class CreateComponent implements OnInit,OnDestroy {
       this.todo.color="dark";
     }
     this.todo.archive=false;
+    this.todo.done=false;
     this.sub=this.db.createTodo(this.todo).subscribe(res=>{
       document.location.reload();
     });
   }
 
+  todayDateGenerate() : string{
+    let dateObj = new Date();
+    let month = ((dateObj.getMonth() + 1)<10 ? `0` : ``)+(dateObj.getMonth()+1);
+    let day = ((dateObj.getDate())<10 ? `0` : ``)+(dateObj.getDate());
+    let year = dateObj. getFullYear();
+    let newdate = year + "-" + month + "-" + day;
+    return newdate
+  }
+
   ngOnDestroy(): void {
-      this.sub.unsubscribe();
+      //this.sub.unsubscribe();
   }
 
 }

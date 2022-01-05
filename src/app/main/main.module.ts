@@ -9,9 +9,11 @@ import { DateFilterPipe } from './pipes/date-filter.pipe';
 import { CreateComponent } from './create/create.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ArchiveComponent } from './archive/archive.component';
+import { ArchiveFilterPipe } from './pipes/archive-filter.pipe';
 
 @NgModule({
-  declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent],
+  declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent, ArchiveComponent, ArchiveFilterPipe],
   imports: [
     CommonModule,
     MainRoutingModule,
