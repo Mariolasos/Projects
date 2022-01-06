@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DatabaseService } from 'src/app/shared/database.service';
 import { Todo } from 'src/app/shared/models/todo.model';
@@ -17,6 +17,8 @@ export class TasksComponent implements OnInit,OnDestroy {
   private sub:Subscription[]=[];
   @Input() optionChild = "today";
   @Input() userChild:User;
+  @Input() operationChild={delete:false,edit:false,archive:false};
+  @Output() editTaskEvent = new EventEmitter<Todo>();
   constructor(private db:DatabaseService,private http:HttpClient) { }
 
   ngOnInit() {
@@ -41,13 +43,13 @@ export class TasksComponent implements OnInit,OnDestroy {
   }
 
   onDelete(taskDel:Todo){
-    this.sub.push(this.db.deleteTodo(taskDel.id).subscribe(res=>{
+    this.db.deleteTodo(taskDel.id).subscribe(res=>{
       document.location.reload();
-    }));
+    });
   }
   
   onEdit(taskEdit:Todo){
-    console.log(taskEdit);
+    this.editTaskEvent.emit(taskEdit);
   }
 
   onArchive(taskArch:Todo){

@@ -43,7 +43,6 @@ export class DatabaseService {
   }
 
   editTodo(todo:Todo,id){
-    delete todo.id;
     return this.http.patch(`https://noteapp-94851-default-rtdb.europe-west1.firebasedatabase.app/todos/${id}/.json`,todo);
   }
 

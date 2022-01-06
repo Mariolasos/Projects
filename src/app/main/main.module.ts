@@ -11,15 +11,17 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchiveComponent } from './archive/archive.component';
 import { ArchiveFilterPipe } from './pipes/archive-filter.pipe';
+import { AccountComponent } from './account/account.component';
+
 
 @NgModule({
-  declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent, ArchiveComponent, ArchiveFilterPipe],
+  declarations: [TodoComponent, TasksComponent, DateFilterPipe, CreateComponent, NavComponent, ArchiveComponent, ArchiveFilterPipe, AccountComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class MainModule { }

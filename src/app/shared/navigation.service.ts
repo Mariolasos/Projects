@@ -15,7 +15,7 @@ export class NavigationService {
   }
 
   mainRedirectCheck(){
-    if(localStorage.getItem("user")!==null && sessionStorage.getItem("user")!==null){
+    if(localStorage.getItem("user")!==null || sessionStorage.getItem("user")!==null){
       this.router.navigate([""]);
     }
   }

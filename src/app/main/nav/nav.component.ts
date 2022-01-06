@@ -22,7 +22,18 @@ export class NavComponent implements OnInit {
   }
 
   toHome(){
-    console.log("A")
     this.router.navigate(['/']);
+  }
+  
+  toCreate(){
+    this.router.navigate(['/create']);
+  }
+
+  toArchive(){
+    this.router.navigate(['/archive']);
+  }
+
+  toAccount(){
+    this.router.navigate(['/account']);
   }
 }

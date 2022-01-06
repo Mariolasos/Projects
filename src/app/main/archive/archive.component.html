@@ -13,7 +13,9 @@
     <span class="text-muted col-lg-4">Todos completed: {{statistic.done}}</span>
     <span class="text-muted col-lg-4">Todos not completed: {{statistic.notDone}}</span>
     <span class="text-muted col-lg-4">Todo percentage: {{statistic.perc}}%</span>
-    <hr class="col-12">
+  </div>
+  <div class="col-12">
+    <hr>
   </div>
 </div>
-<app-tasks [optionChild]="option" [userChild]="user"></app-tasks>
+<app-tasks [optionChild]="option" [userChild]="user" [operationChild]="operation"></app-tasks>

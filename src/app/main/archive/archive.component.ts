@@ -14,6 +14,7 @@ export class ArchiveComponent implements OnInit {
   private user:User;
   private todos:Todo[];
   private option:string="archive";
+  private operation = {delete:true,edit:false,archive:false};
   private statistic = {done:0,notDone:0,perc:0}
   constructor(private db:DatabaseService,private nav:NavigationService) { }
 
@@ -21,10 +22,11 @@ export class ArchiveComponent implements OnInit {
     this.nav.authRedirectCheck();
     this.db.getUserLocalStorage()!==null ? this.user=this.db.getUserLocalStorage() : this.user=this.db.getUserSessionStorage();
     this.db.getTodos().subscribe(res=>{
-      res.forEach(task=>{
+      res.filter(task=>task.idUser==this.user.id)
+      .forEach(task=>{
         if(task.archive==true&&task.done==true){
           this.statistic.done++;
-        }else if(task.archive==false&&task.done==false){
+        }else if(task.archive==true&&task.done==false){
           this.statistic.notDone++;
         }
       });
