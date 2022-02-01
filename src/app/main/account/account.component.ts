@@ -13,12 +13,12 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class AccountComponent implements OnInit {
 
-  private user:User;
-  private isEditable:boolean=false;
-  private todo:Todo={title:"Hello!",text:"This is a showcase of your task.",date:new Date(),idUser:"",archive:false,color:null};
-  private accountForm:FormGroup;
-  private option:string = "account";
-  private operation = {delete:true,edit:true,archive:true};
+  user:User;
+  isEditable:boolean=false;
+  todo:Todo={title:"Hello!",text:"This is a showcase of your task.",date:new Date(),idUser:"",archive:false,color:null};
+  accountForm:FormGroup;
+  option:string = "account";
+  operation = {delete:true,edit:true,archive:true};
   constructor(private db:DatabaseService, private nav:NavigationService, private fb:FormBuilder) { }
 
   ngOnInit() {

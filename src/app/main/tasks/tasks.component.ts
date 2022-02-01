@@ -12,9 +12,9 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class TasksComponent implements OnInit,OnDestroy {
 
-  private tasks:Todo[];
-  private isLoading:boolean=true;
-  private sub:Subscription[]=[];
+  tasks:Todo[];
+  isLoading:boolean=true;
+  sub:Subscription[]=[];
   @Input() optionChild = "today";
   @Input() userChild:User;
   @Input() operationChild={delete:false,edit:false,archive:false};

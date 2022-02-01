@@ -14,10 +14,10 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class CreateComponent implements OnInit,OnDestroy {
 
-  private user:User;
-  private sub:Subscription;
-  private todayDate:string;
-  private todo:Todo={title:"Hello!",text:"This is a showcase of your task.",date:new Date(),idUser:"",archive:false,color:null};
+  user:User;
+  sub:Subscription;
+  todayDate:string;
+  todo:Todo={title:"Hello!",text:"This is a showcase of your task.",date:new Date(),idUser:"",archive:false,color:null};
   createForm:FormGroup;
   constructor(private nav:NavigationService,private db:DatabaseService,private fb:FormBuilder) { }
 

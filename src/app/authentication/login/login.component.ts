@@ -14,9 +14,9 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class LoginComponent implements OnInit,OnDestroy {
 
-  private loginForm:FormGroup;
-  private sub:Subscription;
-  private alert:Alert={show:false,message:""};
+  loginForm:FormGroup;
+  sub:Subscription;
+  alert:Alert={show:false,message:""};
   constructor(private fb:FormBuilder,private db:DatabaseService,private router:Router,private nav:NavigationService) {
   }
 

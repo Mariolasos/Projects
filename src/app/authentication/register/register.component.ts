@@ -13,8 +13,8 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class RegisterComponent implements OnInit,OnDestroy {
 
-  private registerForm:FormGroup;
-  private sub:Subscription;
+  registerForm:FormGroup;
+  sub:Subscription;
   constructor(private fb:FormBuilder,private db:DatabaseService,private nav:NavigationService,private router:Router) { }
 
   ngOnInit() {

@@ -11,8 +11,8 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class TodoComponent implements OnInit {
 
-  private user:User;
-  private option:string="today";
+  user:User;
+  option:string="today";
   constructor(private nav:NavigationService,private db:DatabaseService) { }
 
   ngOnInit() {

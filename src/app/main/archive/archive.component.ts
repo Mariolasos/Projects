@@ -11,11 +11,11 @@ import { NavigationService } from 'src/app/shared/navigation.service';
 })
 export class ArchiveComponent implements OnInit {
 
-  private user:User;
-  private todos:Todo[];
-  private option:string="archive";
-  private operation = {delete:true,edit:false,archive:false};
-  private statistic = {done:0,notDone:0,perc:0}
+  user:User;
+  todos:Todo[];
+  option:string="archive";
+  operation = {delete:true,edit:false,archive:false};
+  statistic = {done:0,notDone:0,perc:0}
   constructor(private db:DatabaseService,private nav:NavigationService) { }
 
   ngOnInit() {
